@@ -12,32 +12,84 @@ body {
 
 .container{
     
-        background-color:#3d4543;  
+        background-color:#109171; 
         height:300px;  
-        width:250px;  
+        width:232px;  
         border-radius:10px;  
         position:relative;  
         top:80px;  
         left:40%;  
     
 }
+/* 
+.buttonIn {
+    width: 225px;
+    
+    position: relative;
+} */
 
-.display{
+.display {
     width: 16em;
     height: 3em;
     margin-left: 5px;
     margin-top: 10px;
+    height: 30px;
+    border-radius: 5px;
 }
 
-.values{
-    margin:auto;
+#buttonC {
+    position: absolute;
+    top: 0;
+    border-radius: 3px;
+    right: 8px;
+    width: 3em;
+    z-index: 2;
+    top: 12px;
+    height: 33px;
+    cursor: pointer;
+    color: rgb(199, 25, 25);
+    background-color: #1e90ff;
+    outline: black;
+
+    /* transform: translateX(0px); */
+}
+ 
+
+/* .display{
+    width: 16em;
+    height: 3em;
+    margin-left: 5px;
+    margin-top: 10px;
+} */
+
+.valuesL{
+    /* margin:auto; */
     display: inline-block;
+    /* outline: black; */
     width: 3em;
     height: 3em;
-    margin-right: 10px;
-    margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 9px;
+    border-radius: 8px;
     
 }
+.valuesR{
+    /* margin:auto; */
+    display: inline-block;
+    /* outline: black; */
+    width: 3em;
+    height: 3em;
+    margin-right: 5px;
+    margin-left: 9px;
+    background-color: chartreuse;
+    border-radius: 4px;
+    
+}
+
+
+
+
+
 
 
 .unu{
