@@ -1,45 +1,83 @@
 
 const screen = document.querySelector("#calculator");
-const numbers = document.querySelectorAll("input.valuesL");
-const operations = document.querySelectorAll("input.valuesR");
+const numbers = document.querySelectorAll("input.values");
+const operations = document.querySelectorAll("input.values");
 
 const text = document.getElementById('calculator');
 const button = document.getElementById('buttonC');
+
+let memory = "";
+let operator = "";
+let previousNumber;
 
 //  clear screen when pressing C
 button.onclick = function() {
     text.value = '';
 }
 
-// display numbers on input
-for (i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener("click", function(event) {
-      screen.value = parseInt(screen.value + event.currentTarget.value)
-      console.log(screen.value)
-    })
+
+
+function inputVal(value){
+    if (isNaN(value)){
+        simbolVal(value);
+    }else{
+        numberVal(value);
+    }
+}
+
+
+
+// // display numbers on input
+// for (i = 0; i < numbers.length; i++) {
+//     numbers[i].addEventListener("click", function(event) {
+//       screen.value = screen.value + event.currentTarget.value;
+//       console.log(screen.value)
+//     })
+//   }
+
+  function calculate(){
+      if (operator === null){
+          return;
+      } else{
+          switch (operator){
+              case "+":
+              screen.innerText = pareseInt(previousNumber) + pareseInt(memory);
+          }
+          memory=screen.innerText;
+          operator=null;
+
+      }
+  }
+
+  function simbolVal(value){
+    console.log("Symbol");
+    switch(value){
+        case "+":
+            operator=value;
+            previousNumber = memory;
+            memory = " ";
+            screen.innerText = 0;
+            break;
+        case "=":
+            calculate();
+    }
+
+}
+
+function numberVal(value) {
+    if (memory === 0) {
+      memory = value;
+    } else {
+      memory = memory + value.toString();
+    }
+    updateScreen();
   }
 
 
-
-
-
-
-
-
-
-
-
-
-function showresult(choice){
-   var totalR = document.getElementById("calculator").value;
-   var result;
-   var c = choice;
-
-   switch (c){
-       case "sum":
-           result = totalR + choice.currentTarget.value;
-           break
-   }
-   document.getElementById("calculator").value= result;
+function inputValue(){
+    document.querySelector("#calculator").addEventListener('click',function(e){
+        inputVal(e.target.innerText);
+    });
 }
+inputValue();
 
