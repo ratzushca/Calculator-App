@@ -1,54 +1,45 @@
 
-// document.getElementById("seven").addEventListener("click", (e)=>{
-//     e.preventDefault();
-//     myFunction(x);
-// });
-
-// function myFunction(x){
-//     var x = document.getElementById("seven").value;
-//     document.getElementById("calculator").innerHTML = x;
-    
-// }
-
-const input = document.querySelector("#calculator");
-const buttons = document.querySelectorAll("input.valuesL");
+const screen = document.querySelector("#calculator");
+const numbers = document.querySelectorAll("input.valuesL");
+const operations = document.querySelectorAll("input.valuesR");
 
 const text = document.getElementById('calculator');
 const button = document.getElementById('buttonC');
 
-
-
-const db = document.getElementById("calculator");
-db.addEventListener('click',numere);
-
+//  clear screen when pressing C
+button.onclick = function() {
+    text.value = '';
+}
 
 // display numbers on input
-function numere(){
-for (i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function(event) {
-      input.value = input.value + event.currentTarget.value
-
- 
-
+for (i = 0; i < numbers.length; i++) {
+    numbers[i].addEventListener("click", function(event) {
+      screen.value = parseInt(screen.value + event.currentTarget.value)
+      console.log(screen.value)
     })
   }
-};
-console.log(numere())
 
-//  delete all when pressing C
-  button.onclick = function() {
-      text.value = '';
-  }
 
-//   get numbers
-function getNumbers(){
-    document.querySelector("#calculator").value;
+
+
+
+
+
+
+
+
+
+
+function showresult(choice){
+   var totalR = document.getElementById("calculator").value;
+   var result;
+   var c = choice;
+
+   switch (c){
+       case "sum":
+           result = totalR + choice.currentTarget.value;
+           break
+   }
+   document.getElementById("calculator").value= result;
 }
 
-// add 2 numbers
-
-function addNumbers (){
-    var numbers = getNumbers();
-
-
-}
