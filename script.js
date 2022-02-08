@@ -1,5 +1,5 @@
 
-const screen = document.querySelector(".display");
+const screen = document.querySelector("#calculator");
 // let numbers = document.querySelectorAll(".numbers");
 // let operations = document.querySelectorAll("input.values");
 
@@ -44,6 +44,9 @@ function inputVal(value){
               case "+":
               screen.innerText = parseInt(previousNumber) + parseInt(memory);
               break;
+              case "-":
+              screen.innerText = parseInt(previousNumber) + parseInt(memory);
+              break;
           }
           memory= screen.innerText;
           
@@ -55,13 +58,16 @@ function inputVal(value){
 
   function numberVal(value) {
     console.log(value)
-    if (memory === 0) {
+
+    if (typeof memory === "number") {
       memory = value;
     } else {
       memory = memory + value.toString();
+      console.log(memory)
     }
     updateScreen();
   }
+
 
 
   function opVal(value){
