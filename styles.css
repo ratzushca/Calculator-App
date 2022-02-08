@@ -62,7 +62,7 @@ body {
     margin-top: 10px;
 } */
 
-.values{
+.numbers{
     /* margin:auto; */
     display: inline-block;
     /* outline: black; */
@@ -73,7 +73,7 @@ body {
     border-radius: 8px;
     
 }
-.valuesR{
+.operator{
     /* margin:auto; */
     display: inline-block;
     /* outline: black; */

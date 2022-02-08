@@ -1,25 +1,26 @@
 
-const screen = document.querySelector("#calculator");
-const numbers = document.querySelectorAll("input.values");
-const operations = document.querySelectorAll("input.values");
+const screen = document.querySelector(".display");
+// let numbers = document.querySelectorAll(".numbers");
+// let operations = document.querySelectorAll("input.values");
 
-const text = document.getElementById('calculator');
-const button = document.getElementById('buttonC');
+// let text = document.getElementById('calculator');
+
+// let button = document.getElementById('buttonC');
+// //  clear screen when pressing C
+// button.onclick = function() {
+//     text.value = '';
+// }
+
 
 let memory = "";
 let operator = "";
 let previousNumber;
 
-//  clear screen when pressing C
-button.onclick = function() {
-    text.value = '';
-}
-
 
 
 function inputVal(value){
     if (isNaN(value)){
-        simbolVal(value);
+        opVal(value);
     }else{
         numberVal(value);
     }
@@ -27,13 +28,13 @@ function inputVal(value){
 
 
 
-// // display numbers on input
-// for (i = 0; i < numbers.length; i++) {
-//     numbers[i].addEventListener("click", function(event) {
-//       screen.value = screen.value + event.currentTarget.value;
-//       console.log(screen.value)
-//     })
-//   }
+// // // display numbers on input
+// // for (i = 0; i < numbers.length; i++) {
+// //     numbers[i].addEventListener("click", function(event) {
+// //       screen.value = screen.value + event.currentTarget.value;
+      
+// //     })
+// //   }
 
   function calculate(){
       if (operator === null){
@@ -41,30 +42,19 @@ function inputVal(value){
       } else{
           switch (operator){
               case "+":
-              screen.innerText = pareseInt(previousNumber) + pareseInt(memory);
+              screen.innerText = parseInt(previousNumber) + parseInt(memory);
+              break;
           }
-          memory=screen.innerText;
+          memory= screen.innerText;
+          
           operator=null;
 
       }
   }
 
-  function simbolVal(value){
-    console.log("Symbol");
-    switch(value){
-        case "+":
-            operator=value;
-            previousNumber = memory;
-            memory = " ";
-            screen.innerText = 0;
-            break;
-        case "=":
-            calculate();
-    }
 
-}
-
-function numberVal(value) {
+  function numberVal(value) {
+    console.log(value)
     if (memory === 0) {
       memory = value;
     } else {
@@ -74,10 +64,32 @@ function numberVal(value) {
   }
 
 
-function inputValue(){
-    document.querySelector("#calculator").addEventListener('click',function(e){
+  function opVal(value){
+    console.log(value);
+    switch(value){
+        case "+":
+            operator=value;
+            previousNumber = memory;
+            memory = "";
+            screen.innerText = 0;
+            break;
+        case "=":
+            calculate();
+    }
+
+}
+
+
+  function updateScreen(){
+      screen.innerText = memory;
+  }
+
+function input(){
+    document.querySelector(".elements").addEventListener('click',function(e){
         inputVal(e.target.innerText);
+        
     });
 }
-inputValue();
+input();
+
 
