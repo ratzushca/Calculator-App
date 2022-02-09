@@ -3,8 +3,9 @@ const screen = document.getElementById("calculator");
 
 let memory = "";
 let operator = "";
-
 let previousNumber;
+
+
 
 function inputVal(value) {
     if (isNaN(value)) {
@@ -41,9 +42,11 @@ function numberVal(value) {
     updateScreen();
   }
 
+
 function updateScreen(){
       screen.innerText = memory;
   }
+
 
 
   function calculate(){
@@ -66,6 +69,7 @@ function updateScreen(){
   }
 
 
+  
  function input(){
     document.querySelector(".elements").addEventListener("click",function (e) {
         inputVal(e.target.innerText);
