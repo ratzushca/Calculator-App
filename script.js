@@ -1,6 +1,10 @@
 
 const screen = document.getElementById("calculator");
 
+document.querySelector(".elements").addEventListener("click",function (e) {
+    inputVal(e.target.innerText);
+    });
+
 let memory = "";
 let operator = "";
 let previousNumber;
@@ -14,7 +18,6 @@ function inputVal(value) {
         numberVal(value);
     }
 }
-
 
 function operandVal(value){
     console.log(value);
@@ -68,14 +71,9 @@ function updateScreen(){
       }
   }
 
-
   
- function input(){
-    document.querySelector(".elements").addEventListener("click",function (e) {
-        inputVal(e.target.innerText);
-        });
-    }
+    
 
-    input();
+ 
 
 
