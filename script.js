@@ -1,8 +1,10 @@
-
 const screen = document.getElementById("calculator");
-const buttons = document.querySelectorAll('.elements');
+const buttons = Array.from(document.querySelectorAll('.numbers'));
+console.log(buttons);
+const operators = document.querySelectorAll('.operator');
 
 
+let memory="";
 let operator ="";
 let firstOperand = "";
 let secondOperand = "";
@@ -11,7 +13,27 @@ buttons.forEach((buttonNr) =>
 buttonNr.addEventListener('click',typeNumbers)
 );
 
-function calculate(firstOperand, secondOperand, operator) {
+function typeNumbers(e){
+    let numberSelection = e.target.textContent;
+    switch(e.target.innerText){
+        case 'C':
+             screen.value="";
+             break;
+        case '+':
+              screen.value=parseInt(firstOperand)+parseInt(secondOperand);
+              break;
+        default:
+    firstOperand = numberSelection;
+    screen.value+=firstOperand;
+    }
+}
+
+
+
+function calculate() {
+
+
+    
     if (operator === '+') {
       return firstOperand + secondOperand;
     } else if (operator === '-') {
@@ -24,16 +46,10 @@ function calculate(firstOperand, secondOperand, operator) {
     return secondOperand;
 }
 
-function typeNumbers(e){
-let numberSelection = e.target.textContent;
-firstOperand = numberSelection;
-if (isNaN(firstOperand)){
-     screen.value= parseInt(firstOperand)
- }else{
-screen.value+=firstOperand;
-}
 
-}
+
+
+
 
 
 
