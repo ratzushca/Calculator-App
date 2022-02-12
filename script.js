@@ -1,10 +1,7 @@
 const screen = document.getElementById("calculator");
 const buttons = Array.from(document.querySelectorAll('.numbers'));
-console.log(buttons);
-const operators = document.querySelectorAll('.operator');
 
 
-let memory="";
 let operator ="";
 let firstOperand = "";
 let secondOperand = "";
@@ -13,37 +10,42 @@ buttons.forEach((buttonNr) =>
 buttonNr.addEventListener('click',typeNumbers)
 );
 
+function handleOperation(value){
+  switch(e.target.textContent){
+    case "+":
+      operator=value;
+      screen.innerText = 0;
+      break;
+      case "=":
+      calculate();
+  }
+}
+
 function typeNumbers(e){
     let numberSelection = e.target.textContent;
     switch(e.target.innerText){
         case 'C':
              screen.value="";
              break;
-        case '+':
-              screen.value=parseInt(firstOperand)+parseInt(secondOperand);
-              break;
+        case isNaN:
+          numberSelection="";
+          break;
         default:
     firstOperand = numberSelection;
-    screen.value+=firstOperand;
+    screen.value+=(firstOperand);
     }
 }
 
 
 
+
 function calculate() {
-
-
-    
-    if (operator === '+') {
-      return firstOperand + secondOperand;
-    } else if (operator === '-') {
-      return firstOperand - secondOperand;
-    } else if (operator === '*') {
-      return firstOperand * secondOperand;
-    } else if (operator === '/') {
-      return firstOperand / secondOperand;
+    switch(operator){
+      case "+":
+        screen.value = parseInt(firstOperand)+parseInt(secondOperand);
+        break;
     }
-    return secondOperand;
+    operator=null;
 }
 
 
