@@ -50,7 +50,7 @@ function oprationType(e){
   if(firstOperand&&secondOperand){
     calculate();
   }else{
-  operator=chooseOperator
+  operator=chooseOperator;
   screen.value= screen.value;
 }
 }
@@ -73,15 +73,17 @@ function calculate() {
         screen.value = parseInt(firstOperand) - parseInt(secondOperand);
         break;
       case "x":
-        screen.value = parseInt(firstOperand) * parseInt(secondOperand);
+        screen.value = (parseFloat(firstOperand) * parseFloat(secondOperand));
+        // .toLocaleString()
         break;
       case "÷":
-        screen.value = Number(parseInt(firstOperand)/parseInt(secondOperand)).toFixed(3);
+        screen.value = Number(parseFloat(firstOperand/secondOperand).toFixed(3));
         break;
     }
 
     firstOperand = screen.value;
-    operator = null;
+    secondOperand = "";
+    
   }
 
 
