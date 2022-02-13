@@ -1,7 +1,9 @@
 const screen = document.getElementById("calculator");
-const buttons = Array.from(document.querySelectorAll('.numbers'));
+const buttons = document.querySelectorAll('.numbers');
+const operators = document.querySelectorAll('.operator');
+const deleteBtn = document.querySelector('#buttonC');
+const calculateBtn = document.querySelector('.calculate');
 
-let memory = "";
 let operator ="";
 let firstOperand = "";
 let secondOperand = "";
@@ -11,61 +13,89 @@ buttonNr.addEventListener('click',typeNumbers)
 );
 
 
+operators.forEach((opBtn) =>
+opBtn.addEventListener('click',oprationType)
+);
 
-function handleOperation(value){
-  switch(e.target.textContent){
-    case (e.target.textContent==="+"):
-      operator=value;
-      memory=firstOperand;
-      screen.value = 0;
-      break;
-      case "=":
-      calculate();
-  }
-}
+
+
+deleteBtn.addEventListener('click', ()=>{
+screen.value = "";
+operator ="";
+firstOperand = "";
+secondOperand = "";
+})
+
+calculateBtn.addEventListener('click', (e)=>{
+ if(e.target.textContent === "="){
+  calculate()
+ }
+})
+
+
+// function handleOperation(value){
+//   switch(e.target.textContent){
+//     case (e.target.textContent==="+"):
+//       operator=value;
+//       memory=firstOperand;
+//       screen.value = 0;
+//       break;
+//       case "=":
+//       calculate();
+//   }
+// }
 
 function typeNumbers(e){
     let numberSelection = e.target.textContent;
-    switch(isNaN(e.target.innerText)||parseInt(e.target.innerText)){
-        case (e.target.textContent==="C"):
-          firstOperand="";
-             screen.value="";
-             break;
-        case (isNaN(e.target.innerText)):
-          operator=numberSelection;
-          screen.value=screen.value;
-          break;
-        default:
-    firstOperand = numberSelection;
-    screen.value+=(firstOperand);
+    if (!operator){
+      firstOperand = numberSelection;
+      screen.value+=firstOperand;
+    }else {
+    secondOperand += numberSelection;
+    screen.value=secondOperand;
     }
-  
+}
+
+function oprationType(e){
+  let chooseOperator = e.target.textContent;
+  if(firstOperand&&secondOperand){
+    calculate();
+  }else{
+  operator=chooseOperator
+  screen.value= screen.value;
+}
+}
+
+function deleteEvent(){
+  screen.value="";
+  operator ="";
+  firstOperand = "";
+  secondOperand = "";
+
 }
 
 function calculate() {
-  if (operator === null) {
-    return;
-  } else {
+ 
     switch (operator) {
       case "+":
-        screen.innerText = parseInt(firstOperand) + parseInt(secondOperand);
+        screen.value = parseInt(firstOperand) + parseInt(secondOperand);
         break;
       case "-":
-        screen.innerText = parseInt(firstOperand) - parseInt(secondOperand);
+        screen.value = parseInt(firstOperand) - parseInt(secondOperand);
         break;
       case "*":
-        screen.innerText = parseInt(firstOperand) * parseInt(secondOperand);
+        screen.value = parseInt(firstOperand) * parseInt(secondOperand);
         break;
       case "/":
-        screen.innerText = parseInt(firstOperand) / parseInt(secondOperand);
+        screen.value = parseInt(firstOperand) / parseInt(secondOperand);
         break;
     }
 
-    firstOperand = screen.innerText;
+    firstOperand = screen.value;
     operator = null;
   }
 
-}
+
 
 
 
