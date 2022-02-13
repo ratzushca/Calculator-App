@@ -33,18 +33,6 @@ calculateBtn.addEventListener('click', (e)=>{
 })
 
 
-// function handleOperation(value){
-//   switch(e.target.textContent){
-//     case (e.target.textContent==="+"):
-//       operator=value;
-//       memory=firstOperand;
-//       screen.value = 0;
-//       break;
-//       case "=":
-//       calculate();
-//   }
-// }
-
 function typeNumbers(e){
     let numberSelection = e.target.textContent;
     if (!operator){
@@ -107,66 +95,6 @@ function calculate() {
 
 
 
-
-// function inputVal(value) {
-//     if (isNaN(value)) {
-//         operandVal(value);
-//     }else{
-//         numberVal(value);
-//     }
-// }
-
-// function operandVal(value){
-//     console.log(value);
-//     switch(value){
-//         case "+":
-//         case "-":
-//             operator = value;
-//             previousNumber = memory;
-//             memory = "";
-//             screen.innerText = previousNumber;
-//             break;
-//         case "=":
-//             calculate();
-//     }
-// }
-
-
-// function numberVal(value) {
-//     if (typeof memory === "number") {
-//       memory = value;
-//     } else {
-//       memory = memory + value.toString();
-//       console.log(memory)
-//     }
-//     updateScreen();
-//   }
-
-
-// function updateScreen(){
-//       screen.innerText = memory;
-//   }
-
-
-
-//   function calculate(){
-//       if (operator === null){
-//           return;
-//       } else{
-//           switch (operator){
-//               case "+":
-//               screen.innerText = parseInt(previousNumber) + parseInt(memory);
-//               break;
-//               case "-":
-//               screen.innerText = parseInt(previousNumber) - parseInt(memory);
-//               break;
-//           }
-//           memory= screen.innerText;
-//           console.log(memory);
-//           operator = null;
-
-//       }
-//   }
 
   
     
