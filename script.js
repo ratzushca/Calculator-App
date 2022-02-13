@@ -36,8 +36,8 @@ calculateBtn.addEventListener('click', (e)=>{
 function typeNumbers(e){
     let numberSelection = e.target.textContent;
     if (!operator){
-      firstOperand = numberSelection;
-      screen.value+=firstOperand;
+      firstOperand += numberSelection;
+      screen.value=firstOperand;
     }else {
     secondOperand += numberSelection;
     screen.value=secondOperand;
