@@ -1,7 +1,7 @@
 const screen = document.getElementById("calculator");
 const buttons = Array.from(document.querySelectorAll('.numbers'));
 
-
+let memory = "";
 let operator ="";
 let firstOperand = "";
 let secondOperand = "";
@@ -10,11 +10,14 @@ buttons.forEach((buttonNr) =>
 buttonNr.addEventListener('click',typeNumbers)
 );
 
+
+
 function handleOperation(value){
   switch(e.target.textContent){
-    case "+":
+    case (e.target.textContent==="+"):
       operator=value;
-      screen.innerText = 0;
+      memory=firstOperand;
+      screen.value = 0;
       break;
       case "=":
       calculate();
@@ -23,29 +26,45 @@ function handleOperation(value){
 
 function typeNumbers(e){
     let numberSelection = e.target.textContent;
-    switch(e.target.innerText){
-        case 'C':
+    switch(isNaN(e.target.innerText)||parseInt(e.target.innerText)){
+        case (e.target.textContent==="C"):
+          firstOperand="";
              screen.value="";
              break;
-        case isNaN:
-          numberSelection="";
+        case (isNaN(e.target.innerText)):
+          operator=numberSelection;
+          screen.value=screen.value;
           break;
         default:
     firstOperand = numberSelection;
     screen.value+=(firstOperand);
     }
+  
 }
 
-
-
-
 function calculate() {
-    switch(operator){
+  if (operator === null) {
+    return;
+  } else {
+    switch (operator) {
       case "+":
-        screen.value = parseInt(firstOperand)+parseInt(secondOperand);
+        screen.innerText = parseInt(firstOperand) + parseInt(secondOperand);
+        break;
+      case "-":
+        screen.innerText = parseInt(firstOperand) - parseInt(secondOperand);
+        break;
+      case "*":
+        screen.innerText = parseInt(firstOperand) * parseInt(secondOperand);
+        break;
+      case "/":
+        screen.innerText = parseInt(firstOperand) / parseInt(secondOperand);
         break;
     }
-    operator=null;
+
+    firstOperand = screen.innerText;
+    operator = null;
+  }
+
 }
 
 
