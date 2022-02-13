@@ -37,7 +37,8 @@ function typeNumbers(e){
     let numberSelection = e.target.textContent;
     if (!operator){
       firstOperand += numberSelection;
-      screen.value=firstOperand;
+      screen.value=firstOperand
+  
     }else {
     secondOperand += numberSelection;
     screen.value=secondOperand;
@@ -71,11 +72,11 @@ function calculate() {
       case "-":
         screen.value = parseInt(firstOperand) - parseInt(secondOperand);
         break;
-      case "*":
+      case "x":
         screen.value = parseInt(firstOperand) * parseInt(secondOperand);
         break;
-      case "/":
-        screen.value = parseInt(firstOperand) / parseInt(secondOperand);
+      case "÷":
+        screen.value = Number(parseInt(firstOperand)/parseInt(secondOperand)).toFixed(3);
         break;
     }
 
