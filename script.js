@@ -3,6 +3,7 @@ const buttons = document.querySelectorAll('.numbers');
 const operators = document.querySelectorAll('.operator');
 const deleteBtn = document.querySelector('#buttonC');
 const calculateBtn = document.querySelector('.calculate');
+const decimalBtn = document.querySelector('.decimal-point');
 
 let operator ="";
 let firstOperand = "";
@@ -31,6 +32,13 @@ calculateBtn.addEventListener('click', (e)=>{
   calculate()
  }
 })
+
+// decimalBtn.addEventListener('click', (e)=>{
+//   if(e.target.textContent === "."){
+//    calculateDecimal()
+//   }
+//  })
+
 
 
 function typeNumbers(e){
