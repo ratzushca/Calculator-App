@@ -34,7 +34,7 @@ h1{
     border-radius: 5px;
 }
 
-/* #buttonC { 
+#buttonC { 
     position: absolute;
     top: 0;
     border-radius: 3px;
@@ -47,7 +47,7 @@ h1{
     color: rgb(199, 25, 25);
     background-color: #1e90ff;
     outline: black;
-} */
+}
  
 
 .numbers , .calculate, .decimal-point{
@@ -70,10 +70,6 @@ h1{
     
 }
 
-#buttonC{
-    background-color:#1e90ff;
-}
-)
 .unu{
     display: flex;
     justify-content: center;
