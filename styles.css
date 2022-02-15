@@ -16,7 +16,7 @@ h1{
 .container{
     
         background-color:#109171; 
-        height:300px;  
+        height:350px;  
         width:232px;  
         border-radius:10px;  
         position:relative;  
@@ -34,7 +34,7 @@ h1{
     border-radius: 5px;
 }
 
-#buttonC {
+/* #buttonC { 
     position: absolute;
     top: 0;
     border-radius: 3px;
@@ -47,7 +47,7 @@ h1{
     color: rgb(199, 25, 25);
     background-color: #1e90ff;
     outline: black;
-}
+} */
  
 
 .numbers , .calculate, .decimal-point{
@@ -59,7 +59,7 @@ h1{
     border-radius: 8px;
     
 }
-.operator{
+.operator,.memory{
     display: inline-block;
     width: 3em;
     height: 3em;
@@ -70,6 +70,10 @@ h1{
     
 }
 
+#buttonC{
+    background-color:#1e90ff;
+}
+)
 .unu{
     display: flex;
     justify-content: center;
